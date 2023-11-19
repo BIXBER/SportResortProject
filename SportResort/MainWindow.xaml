@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportResort"
         mc:Ignorable="d"
-        Title="Sport Resort Store" Height="450" Width="800">
+        Title="Sport Resort Store" Height="500" Width="900">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="MainFrame" Content="Основное окно" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Source="Pages/AuthorizationPage.xaml"/>
+
+
     </Grid>
 </Window>
