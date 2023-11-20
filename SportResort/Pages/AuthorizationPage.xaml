@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SportResort.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AuthorizationPage" Background="AliceBlue">
+      Title="Страница авторизации" Background="AliceBlue">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,69 +20,20 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,20" >
-            <Label x:Name="PageLabel" Content="ВХОД В АККАУНТ" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#bc4f07" FontFamily="Bahnschrift SemiBold">
-                <Label.Effect>
-                    <DropShadowEffect Color="#FF5B2400" Direction="270" ShadowDepth="2" Opacity="0.6" BlurRadius="0"/>
-                </Label.Effect>
+            <Label x:Name="PageLabel" Content="ВХОД В АККАУНТ" Style="{StaticResource Main Title}">
             </Label>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,60,0,0" Height="40" Width="480">
-                <StackPanel.Background>
-                    <SolidColorBrush Color="#bc4f07"/>
-                </StackPanel.Background>
-                <TextBlock Text="Логин:" FontSize="24" Foreground="#FFFFA94C" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Width="90" Height="30">
-                    <TextBlock.Effect>
-                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="0.5" BlurRadius="2"/>
-                    </TextBlock.Effect>
-                </TextBlock>
-                <TextBox TextWrapping="NoWrap" Foreground="#005236" Background="#a1b5c0" FontSize="22" Padding="5,0,0,0" VerticalContentAlignment="Center" FontFamily="Bahnschrift Light" HorizontalAlignment="Right" Width="380"/>
+            <StackPanel Style="{StaticResource BlockField}">
+                <TextBlock Text="Логин:" Style="{StaticResource FieldTitle}" Margin="12,0,15,0"/>
+                <TextBox Style="{StaticResource EnterOneLineField}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0" Height="40" Width="480">
-                <StackPanel.Background>
-                    <SolidColorBrush Color="#bc4f07"/>
-                </StackPanel.Background>
-                <TextBlock Text="Пароль:" FontSize="24" Foreground="#FFFFA94C" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Width="90" Height="30">
-                    <TextBlock.Effect>
-                        <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="0.5" BlurRadius="2"/>
-                    </TextBlock.Effect>
-                </TextBlock>
-                <PasswordBox Width="380" Foreground="#005236" Background="#a1b5c0" FontSize="22" Padding="5,0,0,0" VerticalContentAlignment="Center" FontFamily="Bahnschrift Light"/>
+            <StackPanel Style="{StaticResource BlockField}" Margin="0,30,0,0">
+                <TextBlock Text="Пароль:" Style="{StaticResource FieldTitle}" Margin="7,0,8,0"/>
+                <PasswordBox Style="{StaticResource PasswordField}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0" Height="80">
-                <Button Background="#FFFFA94C" BorderThickness="3" BorderBrush="#bc4f07" Foreground="#bc4f07" Content="Войти" Width="100" FontSize="22" FontFamily="Bahnschrift SemiBold" Height="45" VerticalAlignment="Top">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="{TemplateBinding BorderThickness}" 
-                                    CornerRadius="5">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="Opacity" Value="0.7"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                <Button Content="Войти" Width="100" Style="{StaticResource MiddleButton}"/>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="50,0,0,0">
-                    <Button Background="#FFFFA94C" BorderThickness="3" BorderBrush="#bc4f07" Foreground="#bc4f07" Content="Зарегистрироваться" Width="250" FontSize="22" FontFamily="Bahnschrift SemiBold" Height="45" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" 
-                BorderBrush="{TemplateBinding BorderBrush}" 
-                BorderThickness="{TemplateBinding BorderThickness}" 
-                CornerRadius="5">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Opacity" Value="0.7"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    <Button Content="Зарегистрироваться" Style="{StaticResource MiddleButton}"/>
                     <TextBlock TextWrapping="Wrap" Text="Ещё нет аккаунта?" FontSize="18" FontFamily="Bahnschrift" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

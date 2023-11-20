@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user\Dev\SportResortProject\SportResort\App.xaml
-21400805717
+4188610714
 
-7-1512870138
-13-323816924
-MainWindow.xaml;Pages\AuthorizationPage.xaml;
+7-326597339
+13-38814620
+MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\RegistrationPage.xaml;StyleDictionary.xaml;
 
-True
+False
 
