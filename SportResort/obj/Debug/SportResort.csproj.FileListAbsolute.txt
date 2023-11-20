@@ -37,3 +37,5 @@ C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\SportResort.exe
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\SportResort.pdb
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPage.g.cs
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPage.baml
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.g.cs
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.baml
