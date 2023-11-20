@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Dev\SportResortProject\SportResort\obj\Debug\
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\
 SportResort
 none
 false
 DEBUG;TRACE
-D:\Dev\SportResortProject\SportResort\App.xaml
-21400805717
+C:\Users\user\Dev\SportResortProject\SportResort\App.xaml
+32053622854
 
-7-1512870138
-13-323816924
-MainWindow.xaml;Pages\AuthorizationPage.xaml;
+7-594951638
+13-38814620
+MainWindow.xaml;Pages\AuthorizationPage.xaml;StyleDictionary.xaml;
 
-True
+False
 
