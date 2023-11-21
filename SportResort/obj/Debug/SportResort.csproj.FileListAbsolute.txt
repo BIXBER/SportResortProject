@@ -39,3 +39,4 @@ C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPag
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPage.baml
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.g.cs
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.baml
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\GeneratedInternalTypeHelper.g.cs

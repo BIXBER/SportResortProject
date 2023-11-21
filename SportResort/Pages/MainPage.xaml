@@ -25,19 +25,31 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
             <Button Content="Заказы" Margin="10" Style="{StaticResource LittleButton}" VerticalAlignment="Center"/>
             <Button Content="Корзина" Margin="5,10,10,10" Style="{StaticResource LittleButton}" VerticalAlignment="Center"/>
-            <StackPanel Orientation="Vertical" Margin="10,10,0,0">
-                <Image Source="\Media\Products\Images\ProfileIcon.png" Width="40" Height="35" OpacityMask="#B2BB3131"/>
-                <TextBlock TextWrapping="Wrap" Text="Профиль"/>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
-        </StackPanel>
+            <Button Style="{StaticResource ImageButton}"/>
 
-        <Grid Grid.Row="1" Grid.Column="1">
-            <DataGrid x:Name="Catalog" AutoGenerateColumns="False" IsReadOnly="True">
-                
-            </DataGrid>
-        </Grid>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
+            <ItemsControl ItemsSource="{Binding Products}" HorizontalAlignment="Center" Margin="0,30,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#7F005236" BorderThickness="1" Margin="30,30,30,30" Padding="5">
+                            <StackPanel>
+                                <Image Source="{Binding image_path}" Width="250" Height="250" Stretch="UniformToFill"/>
+                                <TextBlock Text="{Binding title}" FontSize="22" FontWeight="Bold" Margin="0,5"/>
+                                <TextBlock Text="{Binding cost, StringFormat={}{0:F2} ₽}" FontSize="18" Margin="0,5"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+
+
 
     </Grid>
 </Page>
