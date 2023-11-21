@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/products/images/profile-png-icon-2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportstoredatabase.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportstoredatabase.tt")]
 
 
