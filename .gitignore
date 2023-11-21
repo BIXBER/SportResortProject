@@ -1,0 +1,37 @@
+# Папки
+bin/
+obj/
+packages/
+
+# Файлы
+*.exe
+*.dll
+*.pdb
+*.user
+*.suo
+*.cache
+*.bak
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.sdf
+*.opensdf
+*.psess
+*.vsp
+*.vspx
+*.userprefs
+*.docstates
+*.bak
+*.log
+*.vspx
+
+# Отдельные файлы проекта
+*.csproj.user
+*.xaml.cs
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user

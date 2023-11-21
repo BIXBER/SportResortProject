@@ -39,4 +39,12 @@ C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPag
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPage.baml
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.g.cs
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\MainPage.baml
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\SportResort_Content.g.cs
+C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\EntityFramework.dll
+C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\EntityFramework.xml
+C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\SportResort.csproj.CopyComplete
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Converters.baml

@@ -65,16 +65,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Orders.cs">
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCarts.cs">
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="SportStoreDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SportStoreDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SportStoreDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="SportStoreDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Converters\IsAvailableTextConverter.cs" />
+    <Page Include="Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -148,16 +173,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Media\Products\Images\ProfileIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Media\Products\Images\1.jpg" />
+    <Resource Include="Media\Products\Images\10.jpg" />
+    <Resource Include="Media\Products\Images\2.jpg" />
+    <Resource Include="Media\Products\Images\3.jpg" />
+    <Resource Include="Media\Products\Images\4.jpg" />
+    <Resource Include="Media\Products\Images\5.jpg" />
+    <Resource Include="Media\Products\Images\6.jpg" />
+    <Resource Include="Media\Products\Images\7.jpg" />
+    <Resource Include="Media\Products\Images\8.jpg" />
+    <Resource Include="Media\Products\Images\9.jpg" />
+    <Resource Include="Media\Icon\Profile.png" />
     <Content Include="SportStoreDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SportStoreDatabase.Context.cs</LastGenOutput>
+      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
+    </Content>
+    <Content Include="SportStoreDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
+      <LastGenOutput>SportStoreDatabase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

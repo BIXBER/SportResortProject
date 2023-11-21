@@ -63,7 +63,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <StackPanel Orientation="Vertical" Margin="10,10,10,0">
-                            <Image x:Name="ProfileIcon" Source="\Media\Products\Images\ProfileIcon.png" Width="40" Height="35"/>
+                            <Image x:Name="ProfileIcon" Source="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}" Width="40" Height="35"/>
                             <TextBlock TextWrapping="Wrap" Text="Профиль"/>
                         </StackPanel>
                     </Grid>
