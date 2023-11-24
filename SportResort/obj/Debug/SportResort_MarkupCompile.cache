@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user\Dev\SportResortProject\SportResort\App.xaml
-61553829827
+8-582589328
 21559759085
-17-177193330
+18538289639
 18-488883071
-Converters.xaml;MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\MainPage.xaml;Pages\RegistrationPage.xaml;StyleDictionary.xaml;
+Converters.xaml;InterfaceStyleDictionary.xaml;MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\MainPage.xaml;Pages\ProductDetailPage.xaml;Pages\RegistrationPage.xaml;StyleDictionary.xaml;
 
 False
 

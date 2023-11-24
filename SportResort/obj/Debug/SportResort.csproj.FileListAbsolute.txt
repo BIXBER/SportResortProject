@@ -48,3 +48,6 @@ C:\Users\user\Dev\SportResortProject\SportResort\bin\Debug\ru\EntityFramework.re
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\SportResort.csproj.CopyComplete
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Converters.baml
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\ProductDetailPage.g.cs
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\InterfaceStyleDictionary.baml
+C:\Users\user\Dev\SportResortProject\SportResort\obj\Debug\Pages\ProductDetailPage.baml

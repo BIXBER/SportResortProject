@@ -28,6 +28,12 @@ namespace SportResort.Pages
                 IControlProductsList.ItemsSource = dbContext.Products.ToList();
             }
         }
+
+        private void CardProductButton_onClick(object sender, RoutedEventArgs e)
+        {
+            var selectedProduct = ((Button)sender).DataContext as Products;
+            NavigationService?.Navigate(new ProductDetailPage());
+        }
     }
 
     

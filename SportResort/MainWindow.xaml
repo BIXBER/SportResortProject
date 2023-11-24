@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportResort"
         mc:Ignorable="d"
-        Title="Sport Resort Store" Height="500" Width="900" MinHeight="600" MinWidth="900">
+        Title="Sport Resort Store" Height="600" Width="1100">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

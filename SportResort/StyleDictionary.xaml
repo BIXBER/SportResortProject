@@ -1,5 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SportResort.Utils.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Converters.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
     <Style TargetType="Label" x:Key="Main Title">
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -64,7 +70,7 @@
                         </VisualStateManager.VisualStateGroups>
                         <StackPanel Orientation="Vertical" Margin="10,10,10,0">
                             <Image x:Name="ProfileIcon" Source="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}" Width="40" Height="35"/>
-                            <TextBlock TextWrapping="Wrap" Text="Профиль"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
                         </StackPanel>
                     </Grid>
                 </ControlTemplate>
@@ -186,4 +192,32 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="Bahnschrift Light" />
     </Style>
+
+    <Style x:Key="ProductCardButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="CardBorder" BorderBrush="#7F005236" Background="#6bc4a6" MaxWidth="300" MinWidth="300" BorderThickness="1" Margin="30,20,30,30" Padding="5">
+                        <StackPanel>
+                            <Image Source="{Binding image_path}" Width="250" Height="250"/>
+                            <TextBlock Text="{Binding title}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" FontSize="22" FontWeight="Bold" Margin="0,5"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding cost, StringFormat={}{0:F2} ₽}" FontSize="18" Margin="0,5"/>
+                            <TextBlock FontSize="16" Foreground="{Binding is_available, Converter={StaticResource IsAvailableTextConverter}, ConverterParameter=Foreground}">
+                                <TextBlock.Text>
+                                    <Binding Path="is_available" Converter="{StaticResource IsAvailableTextConverter}" />
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="CardBorder" Property="Background" Value="#4b966d" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
 </ResourceDictionary>
