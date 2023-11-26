@@ -23,11 +23,12 @@
                 <Button Style="{StaticResource ButtonInterfaceMain}"/>
             </StackPanel>
 
-            <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
-                <Button Style="{StaticResource ButtonInterfaceOrders}"/>
-                <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
-                <Button Style="{StaticResource ButtonInterfaceProfile}"/>
-            </StackPanel>
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
+            <Button Style="{StaticResource ButtonInterfaceOrders}"/>
+            <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
+            <Button Style="{StaticResource ButtonInterfaceProfile}"/>
+        </StackPanel>
+        
         <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <ItemsControl x:Name="IControlProductsList" HorizontalAlignment="Center" Margin="0,30,0,0">
                 <ItemsControl.ItemTemplate>
@@ -43,6 +44,12 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="10,10,10,20" Height="80">
+            <Button Click="AddProductButton_onClick" Grid.Row="1" Style="{StaticResource MiddleButton}" HorizontalAlignment="Left" Height="80" Width="Auto">
+                <TextBlock Text="Добавить товар" FontSize="18" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+        </StackPanel>
+
 
 
 

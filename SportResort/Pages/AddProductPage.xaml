@@ -1,0 +1,84 @@
+﻿<Page x:Class="SportResort.Pages.AddProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportResort.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Страница добавления нового товара" Background="#CCFFEE">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF45959A" Stroke="#263D979D"/>
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelLeftPart}">
+            <Button Style="{StaticResource ButtonInterfaceMain}"/>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
+            <Button Style="{StaticResource ButtonInterfaceOrders}"/>
+            <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
+            <Button Style="{StaticResource ButtonInterfaceProfile}"/>
+        </StackPanel>
+
+        <StackPanel Background="AliceBlue" Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" Margin="10">
+                <StackPanel Orientation="Vertical">
+                    <Border BorderBrush="Black" BorderThickness="1" Width="200">
+                        <Image x:Name="imgPhoto" Source="\Media\Icon\Profile.png" Width="200" Height="200"/>
+                    </Border>
+                    <Button x:Name="btnBrowse" Style="{StaticResource MiddleButton}" Content="Выбрать фото" Margin="0,10,0,0" Width="200" FontSize="18" Height="35"/>
+                </StackPanel>
+                <Separator VerticalAlignment="Center" Width="200" Height="2" Background="Gray" Margin="0,25,0,0" />
+
+
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0" HorizontalAlignment="Center">
+                    <TextBlock FontSize="18" TextWrapping="Wrap" Text="Есть в наличии:" FontFamily="Bahnschrift SemiBold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Да" FontFamily="Bahnschrift Light SemiCondensed" FontSize="16"/>
+                        <RadioButton Content="Нет" FontFamily="Bahnschrift Light SemiCondensed" FontSize="16" Margin="50,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+            <Rectangle Height="Auto" Width="1" Fill="#FF797979" VerticalAlignment="Stretch" Margin="5,10,5,10"/>
+            <StackPanel Orientation="Vertical" MaxWidth="350" Margin="0,10,10,10">
+                <StackPanel Height="35" Style="{StaticResource BlockField}" Width="350" Margin="10,20,0,0" HorizontalAlignment="Left">
+                    <TextBlock FontSize="18" Text="Название:" Style="{StaticResource FieldTitle}"/>
+                    <TextBox Style="{StaticResource EnterOneLineField}" Width="256" FontSize="16" Foreground="Black" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource BlockField}" Width="350" Height="150" Margin="10,40,0,0" HorizontalAlignment="Left">
+                    <TextBlock FontSize="18" Text="Описание:" Style="{StaticResource FieldTitle}" TextAlignment="Center" />
+                    <TextBox Style="{StaticResource EnterOneLineField}" Width="256" FontSize="16" Foreground="Black" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Padding="5,5,0,0" />
+                </StackPanel>
+                <StackPanel Height="35" Style="{StaticResource BlockField}" Width="200" Margin="10,40,0,0" HorizontalAlignment="Left">
+                    <TextBlock FontSize="18" Text="Цена:" Style="{StaticResource FieldTitle}" TextAlignment="Center"/>
+                    <TextBox Style="{StaticResource EnterOneLineField}" FontSize="16" Foreground="Black" Width="145"/>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Height="Auto" Width="1" Fill="#FF797979" VerticalAlignment="Stretch" Margin="5,10,5,10"/>
+            <StackPanel Margin="5,10,10,10" Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+                <Button Grid.Row="1" Style="{StaticResource MiddleButton}" Width="120" Height="Auto">
+                    <TextBlock Text="Добавить товар в каталог" FontSize="16" TextWrapping="Wrap" TextAlignment="Center"/>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+        
+
+
+
+
+
+
+
+    </Grid>
+</Page>
