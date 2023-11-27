@@ -1,7 +1,7 @@
 # Папки
-bin/
-obj/
-packages/
+*/bin/
+*/obj/
+*/packages/
 
 # Файлы
 *.exe

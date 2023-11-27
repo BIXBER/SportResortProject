@@ -23,7 +23,7 @@ namespace SportResort.Pages
         public MainPage()
         {
             InitializeComponent();
-            using (var dbContext = new SportStoreEntities())
+            using (var dbContext = new SportResortEntities())
             {
                 IControlProductsList.ItemsSource = dbContext.Products.ToList();
             }
@@ -32,7 +32,7 @@ namespace SportResort.Pages
         private void CardProductButton_onClick(object sender, RoutedEventArgs e)
         {
             var selectedProduct = ((Button)sender).DataContext as Products;
-            NavigationService?.Navigate(new ProductDetailPage());
+            NavigationService?.Navigate(new ProductDetailPage(selectedProduct));
         }
 
         private void AddProductButton_onClick(object sender, RoutedEventArgs e)

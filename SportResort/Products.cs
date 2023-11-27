@@ -24,9 +24,9 @@ namespace SportResort
         public short id { get; set; }
         public string title { get; set; }
         public string description { get; set; }
-        public string image_path { get; set; }
+        public byte[] image { get; set; }
         public decimal cost { get; set; }
-        public Nullable<bool> is_available { get; set; }
+        public bool is_available { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }

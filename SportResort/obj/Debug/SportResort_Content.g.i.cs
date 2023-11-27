@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportstoredatabase.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportstoredatabase.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportresortdatabase.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sportresortdatabase.tt")]
 
 

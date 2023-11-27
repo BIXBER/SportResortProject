@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -15,6 +16,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,10 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -66,38 +69,42 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Orders.cs">
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddProductPage.xaml.cs">
+      <DependentUpon>AddProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductDetailPage.xaml.cs">
       <DependentUpon>ProductDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs">
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ShoppingCarts.cs">
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportStoreDatabase.Context.cs">
+    <Compile Include="SportResortDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportStoreDatabase.Context.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportStoreDatabase.cs">
+    <Compile Include="SportResortDatabase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="SportStoreDatabase.Designer.cs">
+    <Compile Include="SportResortDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
+      <DependentUpon>SportResortDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>SportStoreDatabase.tt</DependentUpon>
+      <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Converters\ByteArrayToBitmapImageConverter.cs" />
     <Compile Include="Utils\Converters\IsAvailableTextConverter.cs" />
     <Page Include="Converters.xaml">
       <SubType>Designer</SubType>
@@ -119,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,12 +183,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="SportStoreDatabase.edmx">
+    <EntityDeploy Include="SportResortDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SportStoreDatabase.Designer.cs</LastGenOutput>
+      <LastGenOutput>SportResortDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="SportStoreDatabase.edmx.diagram">
-      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
+    <None Include="SportResortDatabase.edmx.diagram">
+      <DependentUpon>SportResortDatabase.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -195,20 +206,29 @@
     <Resource Include="Media\Products\Images\8.jpg" />
     <Resource Include="Media\Products\Images\9.jpg" />
     <Resource Include="Media\Icon\Profile.png" />
-    <Content Include="SportStoreDatabase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SportStoreDatabase.Context.cs</LastGenOutput>
-      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
-    </Content>
-    <Content Include="SportStoreDatabase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SportStoreDatabase.edmx</DependentUpon>
-      <LastGenOutput>SportStoreDatabase.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SportResortDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SportResortDatabase.Context.cs</LastGenOutput>
+      <DependentUpon>SportResortDatabase.edmx</DependentUpon>
+    </Content>
+    <Content Include="SportResortDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SportResortDatabase.edmx</DependentUpon>
+      <LastGenOutput>SportResortDatabase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

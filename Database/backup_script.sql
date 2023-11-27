@@ -25,9 +25,9 @@ CREATE TABLE Products
 	id SMALLINT CONSTRAINT PK_product_id PRIMARY KEY IDENTITY (1, 1),
 	title NVARCHAR(200) UNIQUE NOT NULL,
 	description NVARCHAR(MAX),
-	image_path NVARCHAR(200) UNIQUE,
+	image_path VARBINARY(MAX) NOT NULL,
 	cost DECIMAL(10, 2) NOT NULL,
-	is_available BIT,
+	is_available BIT NOT NULL,
 );
 
 CREATE TABLE ShoppingCarts

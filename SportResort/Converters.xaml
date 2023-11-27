@@ -3,5 +3,6 @@
                     xmlns:local="clr-namespace:SportResort.Utils.Converters">
 
     <local:IsAvailableTextConverter x:Key="IsAvailableTextConverter"/>
+    <local:ByteArrayToBitmapImageConverter x:Key="ByteArrayToBitmapImageConverter"/>
     
 </ResourceDictionary>

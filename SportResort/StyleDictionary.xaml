@@ -199,7 +199,7 @@
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="CardBorder" BorderBrush="#7F005236" Background="#6bc4a6" MaxWidth="300" MinWidth="300" BorderThickness="1" Margin="30,20,30,30" Padding="5">
                         <StackPanel>
-                            <Image Source="{Binding image_path}" Width="250" Height="250"/>
+                            <Image Source="{Binding image, Converter={StaticResource ByteArrayToBitmapImageConverter}, ConverterParameter=Source}" Width="250" Height="250"/>
                             <TextBlock Text="{Binding title}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" FontSize="22" FontWeight="Bold" Margin="0,5"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding cost, StringFormat={}{0:F2} ₽}" FontSize="18" Margin="0,5"/>
                             <TextBlock FontSize="16" Foreground="{Binding is_available, Converter={StaticResource IsAvailableTextConverter}, ConverterParameter=Foreground}">
