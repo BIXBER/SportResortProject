@@ -68,5 +68,5 @@ D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\ProductDetailPage.baml
 D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\RegistrationPage.baml
 D:\Dev\SportResortProject\SportResort\obj\Debug\StyleDictionary.baml
 D:\Dev\SportResortProject\SportResort\obj\Debug\SportResort.csproj.CopyComplete
-D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\AddProductPage.g.cs
-D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\AddProductPage.baml
+D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\ProductFormPage.g.cs
+D:\Dev\SportResortProject\SportResort\obj\Debug\Pages\ProductFormPage.baml

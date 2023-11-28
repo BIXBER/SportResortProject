@@ -71,11 +71,11 @@
     <Compile Include="Orders.cs">
       <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddProductPage.xaml.cs">
-      <DependentUpon>AddProductPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ProductDetailPage.xaml.cs">
       <DependentUpon>ProductDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductFormPage.xaml.cs">
+      <DependentUpon>ProductFormPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
       <DependentUpon>SportResortDatabase.tt</DependentUpon>
@@ -104,6 +104,7 @@
     <Compile Include="Users.cs">
       <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Converters\BoolToNullableBoolConverter.cs" />
     <Compile Include="Utils\Converters\ByteArrayToBitmapImageConverter.cs" />
     <Compile Include="Utils\Converters\IsAvailableTextConverter.cs" />
     <Page Include="Converters.xaml">
@@ -126,10 +127,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\AddProductPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProductDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductFormPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,6 +212,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Media\Icon\EmptyImage.png" />
     <Content Include="SportResortDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SportResortDatabase.Context.cs</LastGenOutput>

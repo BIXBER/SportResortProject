@@ -37,7 +37,8 @@ namespace SportResort.Pages
 
         private void AddProductButton_onClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new AddProductPage());
+            bool saveButtonVisible = false;
+            NavigationService?.Navigate(new ProductFormPage(new Products(), saveButtonVisible));
         }
         
     }

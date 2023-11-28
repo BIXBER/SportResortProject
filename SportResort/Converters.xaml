@@ -4,5 +4,7 @@
 
     <local:IsAvailableTextConverter x:Key="IsAvailableTextConverter"/>
     <local:ByteArrayToBitmapImageConverter x:Key="ByteArrayToBitmapImageConverter"/>
+    <local:BoolToNullableBoolConverter x:Key="BoolToNullableBoolConverter"/>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     
 </ResourceDictionary>
