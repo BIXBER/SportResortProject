@@ -17,8 +17,9 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="MainFrame" Content="Основное окно" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Source="Pages/MainPage.xaml"/>
-        <Button Content="← Назад" Style="{StaticResource OutSideButton}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Frame x:Name="MainFrame" Content="Основное окно" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Source="Pages/AuthorizationPage.xaml"/>
+        <Button x:Name="returnBackButton" Content="← Назад" Style="{StaticResource OutSideButton}" HorizontalAlignment="Center" Margin="0,10,0,0"
+                VerticalAlignment="Top" Grid.Row="1" Click="returnBackButton_onClick" IsEnabled="{Binding ElementName=MainFrame, Path=CanGoBack}"/>
 
 
     </Grid>

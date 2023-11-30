@@ -1,8 +1,9 @@
 # Папки
 */.vs/
-*/bin/
-*/obj/
+# */bin/
+# */obj/
 */packages/
+Media/
 
 # Файлы
 *.exe

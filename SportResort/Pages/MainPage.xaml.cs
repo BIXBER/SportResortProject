@@ -19,20 +19,31 @@ namespace SportResort.Pages
 {
     public partial class MainPage : Page
     {
-
-        public MainPage()
+        public short userRoleId { get; set; }
+        public MainPage(short userRoleId)
         {
             InitializeComponent();
+            this.userRoleId = userRoleId;
             using (var dbContext = new SportResortEntities())
             {
                 IControlProductsList.ItemsSource = dbContext.Products.ToList();
+            }
+            switch (userRoleId)
+            {
+                case 1:
+                    buttonAddProduct.Visibility = Visibility.Visible;
+                    break;
+
+                default:
+                    buttonAddProduct.Visibility = Visibility.Collapsed;
+                    break;
             }
         }
 
         private void CardProductButton_onClick(object sender, RoutedEventArgs e)
         {
             var selectedProduct = ((Button)sender).DataContext as Products;
-            NavigationService?.Navigate(new ProductDetailPage(selectedProduct));
+            NavigationService?.Navigate(new ProductDetailPage(selectedProduct, userRoleId));
         }
 
         private void AddProductButton_onClick(object sender, RoutedEventArgs e)

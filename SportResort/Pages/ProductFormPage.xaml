@@ -61,7 +61,7 @@
                 </StackPanel>
                 <StackPanel Height="35" Style="{StaticResource BlockField}" Width="200" Margin="0,40,0,0" HorizontalAlignment="Left">
                     <TextBlock FontSize="18" Text="Цена:" Style="{StaticResource FieldTitle}" TextAlignment="Center"/>
-                    <TextBox x:Name="productCostTextBox" PreviewTextInput="costTextBox_PreviewTextInput" Style="{StaticResource EnterOneLineField}" FontSize="16" Foreground="Black" Width="145" Text="{Binding cost}"/>
+                    <TextBox x:Name="productCostTextBox" PreviewTextInput="costTextBox_PreviewTextInput" Style="{StaticResource EnterOneLineField}" FontSize="16" Foreground="Black" Width="145" Text="{Binding cost, StringFormat={}{0:0}}"/>
                 </StackPanel>
             </StackPanel>
             <Rectangle Height="Auto" Width="1" Fill="#FF797979" VerticalAlignment="Stretch" Margin="5,10,5,10"/>

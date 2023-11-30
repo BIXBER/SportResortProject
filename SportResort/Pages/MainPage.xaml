@@ -45,7 +45,7 @@
             </ItemsControl>
         </ScrollViewer>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="10,10,10,20" Height="80">
-            <Button Click="AddProductButton_onClick" Grid.Row="1" Style="{StaticResource MiddleButton}" HorizontalAlignment="Left" Height="80" Width="Auto">
+            <Button x:Name="buttonAddProduct" Click="AddProductButton_onClick" Grid.Row="1" Style="{StaticResource MiddleButton}" HorizontalAlignment="Left" Height="80" Width="Auto">
                 <TextBlock Text="Добавить товар" FontSize="18" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
         </StackPanel>

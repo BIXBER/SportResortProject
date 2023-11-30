@@ -24,16 +24,16 @@
             </Label>
             <StackPanel Style="{StaticResource BlockField}">
                 <TextBlock Text="Логин:" Style="{StaticResource FieldTitle}" Margin="12,0,15,0"/>
-                <TextBox Style="{StaticResource EnterOneLineField}"/>
+                <TextBox x:Name="loginTextBoxField" Style="{StaticResource EnterOneLineField}"/>
             </StackPanel>
             <StackPanel Style="{StaticResource BlockField}" Margin="0,30,0,0">
                 <TextBlock Text="Пароль:" Style="{StaticResource FieldTitle}" Margin="7,0,8,0"/>
-                <PasswordBox Style="{StaticResource PasswordField}"/>
+                <PasswordBox x:Name="passwordPasswordBoxField" Style="{StaticResource PasswordField}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0" Height="80">
-                <Button Content="Войти" Width="100" Style="{StaticResource MiddleButton}"/>
+                <Button x:Name="loginButton" Content="Войти" Width="100" Style="{StaticResource MiddleButton}" Click="loginButton_onClick"/>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="50,0,0,0">
-                    <Button Content="Зарегистрироваться" Style="{StaticResource MiddleButton}"/>
+                    <Button x:Name="transitToRegistrationButton" Content="Зарегистрироваться" Style="{StaticResource MiddleButton}" Click="transitToRegistrationButton_onClick"/>
                     <TextBlock TextWrapping="Wrap" Text="Ещё нет аккаунта?" FontSize="18" FontFamily="Bahnschrift" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

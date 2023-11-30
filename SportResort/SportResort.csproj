@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ButtonCommandsViewModel.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Orders.cs">
       <DependentUpon>SportResortDatabase.tt</DependentUpon>
     </Compile>

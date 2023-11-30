@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="30*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -20,27 +20,34 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,0" >
-            <Label x:Name="PageLabel" Content="РЕГИСТРАЦИЯ" Style="{StaticResource Main Title}">
-            </Label>
-            <StackPanel Style="{StaticResource BlockField}">
+            <Label x:Name="PageLabel" Content="РЕГИСТРАЦИЯ" Style="{StaticResource Main Title}" Margin="0,20,0,0"/>
+            <StackPanel Style="{StaticResource BlockField}" Height="35" Margin="0,31,0,0">
                 <TextBlock Text="ФИО:" Style="{StaticResource FieldTitle}" Margin="20,0,25,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBox Style="{StaticResource EnterOneLineField}"/>
+                <TextBox x:Name="initialsTextBoxField" Style="{StaticResource EnterOneLineField}"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0">
+            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0" Height="33">
                 <TextBlock Margin="20,0,33,0" Text="Ник:" Style="{StaticResource FieldTitle}"/>
-                <TextBox Style="{StaticResource EnterOneLineField}"/>
+                <TextBox x:Name="usernameTextBoxField" Style="{StaticResource EnterOneLineField}"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0">
+            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0" Height="35">
                 <TextBlock Margin="15,0,20,0" Text="Email:" Style="{StaticResource FieldTitle}"/>
-                <TextBox Style="{StaticResource EnterOneLineField}"/>
+                <TextBox x:Name="emailTextBoxField" Style="{StaticResource EnterOneLineField}"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0">
+            <StackPanel Style="{StaticResource BlockField}" Margin="0,20,0,0" Height="35">
                 <TextBlock Margin="10,0,5,0" Text="Пароль:" Style="{StaticResource FieldTitle}"/>
-                <PasswordBox Style="{StaticResource PasswordField}"/>
+                <PasswordBox x:Name="passwordPasswordBoxField" Style="{StaticResource PasswordField}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0" Height="80">
-                <Button Content="Зарегистрироваться" Width="300" Style="{StaticResource MiddleButton}"/>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource BlockField}" Margin="0,20,0,0" Height="35">
+                <TextBlock Margin="28,0,25,0" Text="Пол:" Style="{StaticResource FieldTitle}"/>
+                <ComboBox x:Name="genderComboBox" Height="Auto" Width="379" FontFamily="Bahnschrift Light" FontSize="16" VerticalContentAlignment="Center" Padding="8,5,0,5" Foreground="#FF712D00">
+                    <ComboBoxItem Content="Мужской" Tag="M"/>
+                    <ComboBoxItem Content="Женский" Tag="F"/>
+                </ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,23,0,0" Height="80" Width="280">
+                <Button x:Name="registrationButton" Content="Зарегистрироваться" Width="280" Style="{StaticResource MiddleButton}" Click="registrationButton_onClick" VerticalAlignment="Top" Height="45"/>
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Page>

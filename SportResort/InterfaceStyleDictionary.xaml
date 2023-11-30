@@ -20,23 +20,27 @@
         <Setter Property="Margin" Value="10"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Content" Value="Главная"/>
+        <Setter Property="Command" Value="{Binding MainCommand, Mode=OneWay}"/>
     </Style>
 
     <Style x:Key="ButtonInterfaceOrders" TargetType="Button" BasedOn="{StaticResource LittleButton}">
         <Setter Property="Content" Value="Заказы"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Command" Value="{Binding OrdersCommand}"/>
     </Style>
 
     <Style x:Key="ButtonInterfaceShoppingCart" TargetType="Button" BasedOn="{StaticResource LittleButton}">
         <Setter Property="Content" Value="Корзина"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Command" Value="{Binding ShoppingCartCommand}"/>
     </Style>
 
     <Style x:Key="ButtonInterfaceProfile" TargetType="Button" BasedOn="{StaticResource ImageButton}">
         <Setter Property="Tag" Value="\Media\Icon\Profile.png"/>
         <Setter Property="Content" Value="Профиль"/>
+        <Setter Property="Command" Value="{Binding ProfileCommand}"/>
     </Style>
 
 </ResourceDictionary>
