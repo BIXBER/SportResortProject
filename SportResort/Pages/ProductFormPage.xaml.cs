@@ -16,24 +16,25 @@ namespace SportResort.Pages
     /// </summary>
     public partial class ProductFormPage : Page
     {
-        public bool SaveButtonVisible { get; set; }
+        public bool ChangeMode { get; set; }
         private byte[] imageBytes;
         private string imageFilePath;
-        public short userRoleId { get; set; }
+        public short UserRoleId { get; set; }
+        public bool hasUnsavedChanges { get; set; }
         public Products EditableProduct { get; set; }
         
-        public ProductFormPage(Products editableProduct, bool saveButtonVisible)
+        public ProductFormPage(Products editableProduct, bool editMode, short userRoleId)
         {
             InitializeComponent();
+            ChangeMode = editMode;
+            SetChangeMode(ChangeMode);
             EditableProduct = editableProduct;
+            UserRoleId = userRoleId;
             DataContext = EditableProduct;
-            this.userRoleId = userRoleId;
-
-            if (saveButtonVisible)
+            hasUnsavedChanges = false;
+            if (ChangeMode)
             {
-                buttonSaveChangesOfProduct.Visibility = Visibility.Visible;
-                buttonAddProduct.Visibility = Visibility.Hidden;
-                buttonAddAnotherYetProduct.Visibility = Visibility.Hidden;
+                hasUnsavedChanges = true;
             }
         }
         private void costTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -156,7 +157,7 @@ namespace SportResort.Pages
             }
 
             SaveImageToWorkingDirectory();
-            NavigationService?.Navigate(new MainPage(userRoleId));
+            NavigationService?.Navigate(new MainPage(UserRoleId));
         }
 
         private void SaveProductToDatabase(Products product)
@@ -223,8 +224,7 @@ namespace SportResort.Pages
             {
                 Products product = new Products
                 {
-                    
-                    id = EditableProduct.id, // Устанавливаем ID изменяемого товара
+                    id = EditableProduct.id,
                     title = (string)productAttributes["title"],
                     description = (string)productAttributes["description"],
                     cost = (decimal)productAttributes["cost"],
@@ -235,7 +235,53 @@ namespace SportResort.Pages
             }
 
             SaveImageToWorkingDirectory();
+            NavigationService?.Navigate(new MainPage(UserRoleId));
             
-        } 
+        }
+        private void buttonMainPage_onClick(object sender, RoutedEventArgs e)
+        {
+            if (IsChangeProduct(EditableProduct))
+            {
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить изменения?", "Подтверждение действия", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        NavigationService?.Navigate(new MainPage(UserRoleId));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при отмене изменений товара: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        public bool IsChangeProduct(Products originalProduct)
+        {
+            Dictionary<string, object> currentProductData = ParseFieldsAndCompleteObject();
+            Products currentProduct = new Products
+            {
+                title = (string)currentProductData["title"],
+                description = (string)currentProductData["description"],
+                cost = (decimal)currentProductData["cost"],
+                is_available = (bool)currentProductData["is_available"],
+                image = (byte[])currentProductData["image"]
+            };
+            hasUnsavedChanges = (originalProduct != null && originalProduct != currentProduct);
+            return hasUnsavedChanges;
+        }
+
+        private void SetChangeMode(bool saveChangeMode)
+        {
+            if (saveChangeMode)
+            {
+                buttonSaveChangesOfProduct.Visibility = Visibility.Visible;
+                buttonAddProduct.Visibility = Visibility.Hidden;
+                buttonAddAnotherYetProduct.Visibility = Visibility.Hidden;
+            }
+        }
+
+        
     }
 }

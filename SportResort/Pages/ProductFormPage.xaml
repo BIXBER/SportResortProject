@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF45959A" Stroke="#263D979D"/>
         <StackPanel Style="{StaticResource TopInterfaceStackPanelLeftPart}">
-            <Button Style="{StaticResource ButtonInterfaceMain}"/>
+            <Button Style="{StaticResource ButtonInterfaceMain}" Click="buttonMainPage_onClick"/>
         </StackPanel>
 
         <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">

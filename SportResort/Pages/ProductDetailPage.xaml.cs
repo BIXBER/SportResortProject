@@ -24,16 +24,19 @@ namespace SportResort.Pages
     public partial class ProductDetailPage : Page
     {
         public Products SelectedProduct { get; set; }
-        public short userRoleId { get; set; }
+        public short UserRoleId { get; set; }
 
         public ProductDetailPage(Products selectedProduct, short userRoleId)
         {
             InitializeComponent();
-            SetPermission();
             SelectedProduct = selectedProduct;
+            UserRoleId = userRoleId;
+            SetPermission(UserRoleId);
+            
             DataContext = new ButtonCommandsViewModel()
             {
-                SelectedProduct = SelectedProduct
+                SelectedProduct = SelectedProduct,
+                userRoleId = userRoleId
             };
              
         }
@@ -42,7 +45,7 @@ namespace SportResort.Pages
         {
             Products editable_product = SelectedProduct;
             bool saveButtonVisible = true;
-            NavigationService?.Navigate(new ProductFormPage(editable_product, saveButtonVisible));
+            NavigationService?.Navigate(new ProductFormPage(editable_product, saveButtonVisible, UserRoleId));
         }
 
         private void buttonDeleteProduct_onClick(object sender, RoutedEventArgs e)
@@ -58,7 +61,7 @@ namespace SportResort.Pages
                         dbContext.Products.Remove(SelectedProduct);
                         dbContext.SaveChanges();
                     }
-                    NavigationService?.Navigate(new MainPage(userRoleId));
+                    NavigationService?.Navigate(new MainPage(UserRoleId));
                     MessageBox.Show($"Товар {SelectedProduct.title} был успешно удален из каталога", "Удаление товара", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
@@ -73,19 +76,19 @@ namespace SportResort.Pages
 
         }
 
-        private void SetPermission()
+        private void SetPermission(short userRoleId)
         {
-            if (userRoleId == 1)
+            switch (userRoleId)
             {
-                editProductStackPanel.Visibility = Visibility.Visible;
-            }
-            else if (userRoleId == 2)
-            {
-                editProductStackPanel.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                editProductStackPanel.Visibility = Visibility.Hidden;
+                case 1:
+                    editProductStackPanel.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    editProductStackPanel.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    editProductStackPanel.Visibility = Visibility.Hidden;
+                    break;
             }
         }
 

@@ -44,7 +44,27 @@ namespace SportResort
 
         private void returnBackButton_onClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.GoBack();
+            ProductFormPage productFormPage = MainFrame.Content as ProductFormPage;
+            if (productFormPage != null)
+            {
+                bool hasUnsavedChanges = productFormPage.hasUnsavedChanges;
+                if (hasUnsavedChanges)
+                {
+                    MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить изменения?", "Подтверждение действия", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        MainFrame.GoBack();
+                    }
+                }
+                else
+                {
+                    MainFrame.GoBack();
+                }
+            }
+            else
+            {
+                MainFrame.GoBack();
+            }
         }
     }
 }

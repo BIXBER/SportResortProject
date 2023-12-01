@@ -12,13 +12,14 @@ namespace SportResort.Commands
     public class ButtonCommandsViewModel
     {
         public short userRoleId { get; set; }
-        public Products SelectedProduct { get; set; } // Свойство для хранения продукта
-        public ICommand MainCommand { get; } // Команда для кнопки "Главная"
+        public Products SelectedProduct { get; set; }
+        public ICommand MainCommand { get; }
 
         
         public ButtonCommandsViewModel()
         {
             MainCommand = new RelayCommand(NavigateToMainPage);
+
         }
 
         private void NavigateToMainPage(object parameter)
