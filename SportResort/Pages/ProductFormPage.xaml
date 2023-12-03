@@ -20,19 +20,23 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF45959A" Stroke="#263D979D"/>
         <StackPanel Style="{StaticResource TopInterfaceStackPanelLeftPart}">
-            <Button Style="{StaticResource ButtonInterfaceMain}" Click="buttonMainPage_onClick"/>
+            <Button Style="{StaticResource ButtonInterfaceMain}" Click="buttonMainPage_onClick" Command=""/>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelCenterPart}">
+            <Button Style="{StaticResource ButtonInterfaceOrders}"/>
+            <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
         </StackPanel>
 
         <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
-            <Button Style="{StaticResource ButtonInterfaceOrders}"/>
-            <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
             <Button Style="{StaticResource ButtonInterfaceProfile}"/>
+            <Button Style="{StaticResource ButtonInterfaceAccountLogout}"/>
         </StackPanel>
 
         <StackPanel Background="AliceBlue" Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Margin="0,10,0,10" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="15,10,10,10">
                 <StackPanel Orientation="Vertical">
-                    <Border BorderBrush="Black" BorderThickness="1" Width="200">
+                    <Border BorderBrush="Black" BorderThickness="1" Background="#FFE4F2FF" Width="200">
                         <Image x:Name="imgPhoto" Width="200" Height="200" Source="\Media\Icon\EmptyImage.png"/>
                     </Border>
                     <Button x:Name="buttonBrowseImage" Style="{StaticResource MiddleButton}" Content="Выбрать фото" Margin="0,10,0,0" Width="200" FontSize="18" Height="35" Click="buttonBrowseImage_onClick"/>
@@ -53,15 +57,15 @@
             <StackPanel Orientation="Vertical" MaxWidth="340" Margin="5,10,10,10">
                 <StackPanel Height="35" Style="{StaticResource BlockField}" Width="340" Margin="0,20,0,0" HorizontalAlignment="Left">
                     <TextBlock FontSize="18" Text="Название:" Style="{StaticResource FieldTitle}"/>
-                    <TextBox x:Name="productTitleTextBox" Style="{StaticResource EnterOneLineField}" Width="247" FontSize="16" Foreground="Black" Text="{Binding title}" />
+                    <TextBox x:Name="productTitleTextBox" Style="{StaticResource EnterOneLineField}" Width="247" FontSize="16" Foreground="Black" Text="{Binding SelectedProduct.title}" />
                 </StackPanel>
                 <StackPanel Style="{StaticResource BlockField}" Width="340" Height="150" Margin="-2,40,0,0" HorizontalAlignment="Left">
                     <TextBlock FontSize="18" Text="Описание:" Style="{StaticResource FieldTitle}" TextAlignment="Center" />
-                    <TextBox x:Name="productDescriptionTextBox" Style="{StaticResource EnterOneLineField}" Width="245" FontSize="16" Foreground="Black" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Padding="5,5,0,0" Text="{Binding description}"/>
+                    <TextBox x:Name="productDescriptionTextBox" Style="{StaticResource EnterOneLineField}" Width="245" FontSize="16" Foreground="Black" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Padding="5,5,0,0" Text="{Binding SelectedProduct.description}"/>
                 </StackPanel>
                 <StackPanel Height="35" Style="{StaticResource BlockField}" Width="200" Margin="0,40,0,0" HorizontalAlignment="Left">
                     <TextBlock FontSize="18" Text="Цена:" Style="{StaticResource FieldTitle}" TextAlignment="Center"/>
-                    <TextBox x:Name="productCostTextBox" PreviewTextInput="costTextBox_PreviewTextInput" Style="{StaticResource EnterOneLineField}" FontSize="16" Foreground="Black" Width="145" Text="{Binding cost, StringFormat={}{0:0}}"/>
+                    <TextBox x:Name="productCostTextBox" PreviewTextInput="costTextBox_PreviewTextInput" Style="{StaticResource EnterOneLineField}" FontSize="16" Foreground="Black" Width="145" Text="{Binding SelectedProduct.cost, StringFormat={}{0:0}}"/>
                 </StackPanel>
             </StackPanel>
             <Rectangle Height="Auto" Width="1" Fill="#FF797979" VerticalAlignment="Stretch" Margin="5,10,5,10"/>

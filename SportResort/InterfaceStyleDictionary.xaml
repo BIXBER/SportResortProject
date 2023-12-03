@@ -6,6 +6,13 @@
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="Orientation" Value="Horizontal"/>
     </Style>
+    
+    <Style x:Key="TopInterfaceStackPanelCenterPart" TargetType="StackPanel">
+        <Setter Property="Grid.Row" Value="0"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
 
     <Style x:Key="TopInterfaceStackPanelRightPart" TargetType="StackPanel">
         <Setter Property="Grid.Row" Value="0"/>
@@ -41,6 +48,17 @@
         <Setter Property="Tag" Value="\Media\Icon\Profile.png"/>
         <Setter Property="Content" Value="Профиль"/>
         <Setter Property="Command" Value="{Binding ProfileCommand}"/>
+    </Style>
+
+    <Style x:Key="ButtonInterfaceAccountLogout" TargetType="Button" BasedOn="{StaticResource LittleButton}">
+        <Setter Property="Content" Value="Выйти"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Command" Value="{Binding LogoutCommand, Mode=OneWay}"/>
+        <Setter Property="Foreground" Value="#FFA40000"/>
+        <Setter Property="BorderBrush" Value="#FFBC0707"/>
+        <Setter Property="Background" Value="#FFFF4C4C"/>
+        <Setter Property="Width" Value="80"/>
     </Style>
 
 </ResourceDictionary>

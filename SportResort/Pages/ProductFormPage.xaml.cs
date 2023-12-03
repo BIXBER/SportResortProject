@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using System.Data.Entity.Migrations;
 using System.Collections.Generic;
 using System.Windows.Input;
+using SportResort.Commands;
 
 namespace SportResort.Pages
 {
@@ -21,6 +22,7 @@ namespace SportResort.Pages
         private string imageFilePath;
         public short UserRoleId { get; set; }
         public bool hasUnsavedChanges { get; set; }
+        public bool hasUnsavedNewProduct { get; set; }
         public Products EditableProduct { get; set; }
         
         public ProductFormPage(Products editableProduct, bool editMode, short userRoleId)
@@ -30,11 +32,22 @@ namespace SportResort.Pages
             SetChangeMode(ChangeMode);
             EditableProduct = editableProduct;
             UserRoleId = userRoleId;
-            DataContext = EditableProduct;
+            DataContext = new ButtonCommandsViewModel()
+            {
+                SelectedProduct = EditableProduct,
+                userRoleId = UserRoleId
+            };
             hasUnsavedChanges = false;
+            hasUnsavedNewProduct = false;
             if (ChangeMode)
             {
                 hasUnsavedChanges = true;
+                hasUnsavedNewProduct = false;
+            }
+            else
+            {
+                hasUnsavedChanges = false;
+                hasUnsavedNewProduct = true;
             }
         }
         private void costTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -85,39 +98,39 @@ namespace SportResort.Pages
         }
             
 
-        private Dictionary<string, object> ParseFieldsAndCompleteObject()
+        public Dictionary<string, object> ParseFieldsAndCompleteObject()
+        {
+            bool answer = false;
+
+            if (yesRadioButton.IsChecked == true)
             {
-                bool answer = false;
-
-                if (yesRadioButton.IsChecked == true)
-                {
-                    answer = true;
-                }
-                else if (noRadioButton.IsChecked == true)
-                {
-                    answer = false;
-                }
-
-                decimal cost;
-                bool isValidCost = decimal.TryParse(productCostTextBox.Text, out cost);
-
-                if (!isValidCost)
-                {
-                    MessageBox.Show("Указано некорректное значение стоимости товара.");
-                    return null;
-                }
-
-                Dictionary<string, object> productAttributes = new Dictionary<string, object>
-                {
-                    { "title", productTitleTextBox.Text },
-                    { "description", productDescriptionTextBox.Text },
-                    { "cost", cost },
-                    { "is_available", answer },
-                    { "image", imageBytes }
-                };
-
-                return productAttributes;
+                answer = true;
             }
+            else if (noRadioButton.IsChecked == true)
+            {
+                answer = false;
+            }
+
+            decimal cost;
+            bool isValidCost = decimal.TryParse(productCostTextBox.Text, out cost);
+
+            if (!isValidCost)
+            {
+                MessageBox.Show("Указано некорректное значение стоимости товара.");
+                return null;
+            }
+
+            Dictionary<string, object> productAttributes = new Dictionary<string, object>
+            {
+                { "title", productTitleTextBox.Text },
+                { "description", productDescriptionTextBox.Text },
+                { "cost", cost },
+                { "is_available", answer },
+                { "image", imageBytes }
+            };
+
+            return productAttributes;
+        }
 
         private void buttonAddAnotherYetProduct_onClick(object sender, RoutedEventArgs e)
         {
@@ -168,6 +181,7 @@ namespace SportResort.Pages
                 {
                     dbContext.Products.Add(product);
                     dbContext.SaveChanges();
+                    MessageBox.Show($"Товар {product.title} был успешно добавлен в каталог", "Добавление товара", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
@@ -240,7 +254,7 @@ namespace SportResort.Pages
         }
         private void buttonMainPage_onClick(object sender, RoutedEventArgs e)
         {
-            if (IsChangeProduct(EditableProduct))
+            if (hasUnsavedChanges)
             {
                 MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить изменения?", "Подтверждение действия", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
@@ -255,21 +269,21 @@ namespace SportResort.Pages
                     }
                 }
             }
-        }
-
-        public bool IsChangeProduct(Products originalProduct)
-        {
-            Dictionary<string, object> currentProductData = ParseFieldsAndCompleteObject();
-            Products currentProduct = new Products
+            else if (hasUnsavedNewProduct)
             {
-                title = (string)currentProductData["title"],
-                description = (string)currentProductData["description"],
-                cost = (decimal)currentProductData["cost"],
-                is_available = (bool)currentProductData["is_available"],
-                image = (byte[])currentProductData["image"]
-            };
-            hasUnsavedChanges = (originalProduct != null && originalProduct != currentProduct);
-            return hasUnsavedChanges;
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить создание нового товара?", "Подтверждение действия", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        NavigationService?.Navigate(new MainPage(UserRoleId));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при переходе на главную страницу: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
         }
 
         private void SetChangeMode(bool saveChangeMode)

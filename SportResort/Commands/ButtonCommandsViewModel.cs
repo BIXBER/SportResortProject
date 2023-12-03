@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace SportResort.Commands
 {
@@ -14,25 +15,38 @@ namespace SportResort.Commands
         public short userRoleId { get; set; }
         public Products SelectedProduct { get; set; }
         public ICommand MainCommand { get; }
+        public ICommand LogoutCommand { get; }
 
         
         public ButtonCommandsViewModel()
         {
             MainCommand = new RelayCommand(NavigateToMainPage);
-
+            LogoutCommand = new RelayCommand(Logout);
         }
 
         private void NavigateToMainPage(object parameter)
         {
-            // Получение основного окна приложения
-            var mainWindow = App.Current.MainWindow as MainWindow;
+            var mainWindow = (MainWindow)App.Current.MainWindow;
 
-            // Проверка наличия основного окна
-            if (mainWindow != null)
+            mainWindow?.MainFrame.Navigate(new MainPage(userRoleId));
+        }
+
+        private void Logout(object parameter)
+        {
+            var mainWindow = (MainWindow)App.Current.MainWindow;
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите выйти из аккаунта?", "Подтверждение действия", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
             {
-                // Навигация на MainPage
-                mainWindow.MainFrame.Navigate(new MainPage(userRoleId));
+                try
+                {
+                    mainWindow?.MainFrame.Navigate(new AuthorizationPage());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка при выходе из аккаунта " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            
         }
     }
 }

@@ -31,7 +31,6 @@ namespace SportResort
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            // Проверяем текущую страницу
             if (MainFrame.Content is MainPage)
             {
                 returnBackButton.IsEnabled = false;
@@ -45,20 +44,38 @@ namespace SportResort
         private void returnBackButton_onClick(object sender, RoutedEventArgs e)
         {
             ProductFormPage productFormPage = MainFrame.Content as ProductFormPage;
+            
             if (productFormPage != null)
             {
-                bool hasUnsavedChanges = productFormPage.hasUnsavedChanges;
-                if (hasUnsavedChanges)
+                try
                 {
-                    MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить изменения?", "Подтверждение действия", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
+                    bool hasUnsavedNewProduct = productFormPage.hasUnsavedNewProduct;
+                    bool hasUnsavedChanges = productFormPage.hasUnsavedChanges;
+                    if (hasUnsavedChanges)
+                    {
+                        MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить изменения?", "Подтверждение действия", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            MainFrame.GoBack();
+                        }
+                    }
+                    else if (hasUnsavedNewProduct)
+                    {
+                        MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите отменить создание нового товара?", "Подтверждение действия", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            MainFrame.GoBack();
+                        }
+                    }
+                    else
                     {
                         MainFrame.GoBack();
                     }
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    MainFrame.GoBack();
+                    MessageBox.Show($"Ошибка при возврате на предыдущую страницу {ex.Message}", "Ошибка изменения товара");
                 }
             }
             else

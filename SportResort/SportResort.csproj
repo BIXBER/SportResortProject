@@ -181,6 +181,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,10 +216,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\Icon\EmptyImage.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="SportResortDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SportResortDatabase.Context.cs</LastGenOutput>
       <DependentUpon>SportResortDatabase.edmx</DependentUpon>
+      <LastGenOutput>SportResortDatabase.Context.cs</LastGenOutput>
     </Content>
     <Content Include="SportResortDatabase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
