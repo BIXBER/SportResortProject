@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportResort.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -31,6 +32,10 @@ namespace SportResort.Pages
             {
                 IControlProductsList.ItemsSource = dbContext.Products.ToList();
             }
+            DataContext = new ButtonCommandsViewModel()
+            {
+                userRoleId = UserRoleId
+            };
         }
 
         private void CardProductButton_onClick(object sender, RoutedEventArgs e)
@@ -41,8 +46,29 @@ namespace SportResort.Pages
 
         private void AddProductButton_onClick(object sender, RoutedEventArgs e)
         {
-            bool saveButtonVisible = false;
-            NavigationService?.Navigate(new ProductFormPage(new Products(), saveButtonVisible, UserRoleId));
+            bool editMode = false;
+            NavigationService?.Navigate(new ProductFormPage(new Products(), editMode, UserRoleId));
+        }
+
+        private void ButtonFilterAvailable_Click(object sender, RoutedEventArgs e)
+        {
+            checkBoxAvailable.IsChecked = !checkBoxAvailable.IsChecked;
+            FilterProductsByAvailability(checkBoxAvailable.IsChecked ?? false);
+        }
+
+        private void FilterProductsByAvailability(bool showOnlyAvailable)
+        {
+            using (var dbContext = new SportResortEntities())
+            {
+                if (showOnlyAvailable)
+                {
+                    IControlProductsList.ItemsSource = dbContext.Products.Where(p => p.is_available).ToList();
+                }
+                else
+                {
+                    IControlProductsList.ItemsSource = dbContext.Products.ToList();
+                }
+            }
         }
 
         private void SetPermission(short userRoleId)

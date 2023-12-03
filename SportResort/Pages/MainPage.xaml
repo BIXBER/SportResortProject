@@ -20,13 +20,17 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF45959A" Stroke="#263D979D"/>
         <StackPanel Style="{StaticResource TopInterfaceStackPanelLeftPart}">
-                <Button Style="{StaticResource ButtonInterfaceMain}"/>
-            </StackPanel>
-
-        <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
+            <Button Style="{StaticResource ButtonInterfaceMain}"/>
+        </StackPanel>
+        
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelCenterPart}">
             <Button Style="{StaticResource ButtonInterfaceOrders}"/>
             <Button Style="{StaticResource ButtonInterfaceShoppingCart}"/>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource TopInterfaceStackPanelRightPart}">
             <Button Style="{StaticResource ButtonInterfaceProfile}"/>
+            <Button Style="{StaticResource ButtonInterfaceAccountLogout}"/>
         </StackPanel>
         
         <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
@@ -44,11 +48,20 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="10,10,10,20" Height="80">
-            <Button x:Name="buttonAddProduct" Click="AddProductButton_onClick" Grid.Row="1" Style="{StaticResource MiddleButton}" HorizontalAlignment="Left" Height="80" Width="Auto">
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,20" Height="80">
+            <Button x:Name="buttonAddProduct" Click="AddProductButton_onClick" Style="{StaticResource MiddleButton}" HorizontalAlignment="Left" Height="80" Width="Auto">
                 <TextBlock Text="Добавить товар" FontSize="18" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,20,20" Height="80">
+            <Button x:Name="buttonFilterAvailable" Style="{StaticResource LittleButton}" HorizontalAlignment="Right" Height="80" Width="150" Click="ButtonFilterAvailable_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="130">
+                    <CheckBox x:Name="checkBoxAvailable" IsChecked="{Binding IsAvailableFilterChecked}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    <TextBlock Text="Посмотреть только доступные" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" Width="100" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        
 
 
 

@@ -71,11 +71,6 @@ namespace SportResort.Pages
             }
         }
 
-        private void buttonAddToCart_onClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void SetPermission(short userRoleId)
         {
             switch (userRoleId)
